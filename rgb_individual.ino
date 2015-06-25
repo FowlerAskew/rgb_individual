@@ -27,15 +27,15 @@ void loop()
   R_val = pulseIn(R_in, HIGH);
   G_val = pulseIn(G_in, HIGH);
   B_val = pulseIn(B_in, HIGH);
+  
   //convert pulse width into pwm
   R_val_out = map(R_val, 1000, 2000, -372.5, 627.5);  //Center the input values
   R_val_out = constrain(R_val_out, 0, 255);  //constrain the new values to passable PWM values
-  //convert pulse width into pwm
   G_val_out = map(G_val, 1000, 2000, -372.5, 627.5);
   G_val_out = constrain(G_val_out, 0, 255);
-  //convert pulse width into pwm
   B_val_out = map(B_val, 1000, 2000, -372.5, 627.5);
   B_val_out = constrain(B_val_out, 0, 255);
+  
   //output analog signal
   analogWrite(R_out, R_val_out);  //output the new values
   analogWrite(G_out, G_val_out);
